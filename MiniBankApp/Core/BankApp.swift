@@ -69,12 +69,12 @@ class BankApp {
         if chooseCardIndex >= 0, transferCardIndex >= 0,
            chooseCardIndex < cardManager.cards.count, transferCardIndex < cardManager.cards.count,
            chooseCardIndex != transferCardIndex, money > 0, cardManager.cards[chooseCardIndex].balance >= money  {
-            var chooseCard = cardManager.cards[chooseCardIndex]
-            var transferCard = cardManager.cards[transferCardIndex]
             
-            chooseCard.balance -= money
-            transferCard.balance += money
+            cardManager.cards[chooseCardIndex].balance -= money
+            cardManager.cards[transferCardIndex].balance += money
             print("\(money) manat göndərildi.")
+            print("--------------------")
+            cardManager.showCards(isTransfer: true)
             
         } else {
             print("Yanlış seçim.")
