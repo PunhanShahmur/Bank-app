@@ -2,9 +2,13 @@ import Foundation
 
 class UserManager {
     
-    let bankApp: BankApp = BankApp()
+        weak var bankApp: BankApp?
+
+        var currentUser: User?
     
-    var currentUser: User? //private(set) --- oxumaq olar, dəyişmək yox
+    //Retain Cycle yaranır - qarşısını almaq üçün unowned vermək lazımdır. Dependecy İnjection --- memory leak (strong reference qarşısını almaq üçün)
+    
+    //private(set) --- oxumaq olar, dəyişmək yox
 
     func registerUser() {
         print("Ad və soyadınızı daxil edin: ")
@@ -45,7 +49,10 @@ class UserManager {
         let choose = readLine() ?? ""
         
         if choose == "00" {
-            bankApp.start()
+            
+            if let app = bankApp {
+                app.start()
+            }
         }
     }
 }

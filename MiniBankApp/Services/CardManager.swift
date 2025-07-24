@@ -2,10 +2,16 @@ import Foundation
 
 class CardManager {
     
-    let bankApp: BankApp = BankApp()
-    var cards: [Card] = [] //private(set) --- oxumaq olar, dəyişmək yox
+    weak var bankApp: BankApp?
+    var cards: [Card] = []
+    
+    //Retain Cycle yaranır - qarşısını almaq üçün weak vermək lazımdır. Dependecy İnjection --- memory leak (strong reference)
+    
+    
+    
+    //private(set) --- oxumaq olar, dəyişmək yox
 
-    func showCards() {
+    func showCards(isTransfer: Bool = false) { // default parameter
         
         if cards.isEmpty {
             
@@ -22,18 +28,27 @@ class CardManager {
                 
             }
             
-            print ("0. Yeni Card əlavə et")
-            print("00. Geri")
-            
-            let choose = readLine() ?? ""
-            
-            if choose == "0" {
+            if !isTransfer {
+               
+                print ("0. Yeni Card əlavə et")
+                print("00. Geri")
                 
-                addCard()
+                let choose = readLine() ?? ""
                 
-            } else if choose == "00" {
+                if choose == "0" {
+                    
+                    addCard()
+                    
+                } else if choose == "00" {
+                    
+                    if let app = bankApp {
+                        app.start()
+                    }
+                    
+                }
                 
-                bankApp.start()
+            } else {
+                
                 
             }
         }
@@ -62,7 +77,9 @@ class CardManager {
                 case "3":
                     selectedType = .gunluk
                 case "00":
-                    bankApp.start()
+                    if let app = bankApp {
+                        app.start()
+                    }
                 default:
                     print("Yanlış seçim. Zəhmət olmasa 1, 2, 3 və ya 00 daxil edin.")
             }
@@ -72,7 +89,7 @@ class CardManager {
         }
 
         let number = askInt("Kart nömrəsi (16 rəqəm):", length: 16)
-        let deadline = askInt("Kartın son tarixi (MMYY - 4 rəqəm):", length: 4)
+        let deadline = askInt("Kartın son tarixi (4 rəqəm):", length: 4)
         let cvc = askInt("CVC kodu (3 rəqəm):", length: 3)
         
         print("Balans daxil edin:")
@@ -93,7 +110,7 @@ class CardManager {
             if let input = readLine(), input.count == length, let num = Int(input) {
                 return num
             }
-            print("Yanlış format. Yenidən daxil edin.")
+            print("Rəqəm sayına fikir verin.")
         }
     }
 }

@@ -1,8 +1,15 @@
 import Foundation
 
 class BankApp {
-    let userManager = UserManager()
-    let cardManager = CardManager()
+    let userManager: UserManager
+    let cardManager: CardManager
+
+    init() {
+            self.userManager = UserManager()
+            self.cardManager = CardManager()
+            self.userManager.bankApp = self
+            self.cardManager.bankApp = self
+        }
 
     func start() {
         if userManager.currentUser == nil {
@@ -49,11 +56,11 @@ class BankApp {
             return
         }
 
-        cardManager.showCards()
-        print("Göndərən kartın nömrəsini seçin:")
+        cardManager.showCards(isTransfer: true)
+        print("Göndərən kartın nömrəsini seçin: (məs.1-ci, 2-ci)")
         let chooseCardIndex = (Int(readLine() ?? "") ?? 0) - 1
 
-        print("Qəbul edən kartın nömrəsini seçin:")
+        print("Qəbul edən kartın nömrəsini seçin: (məs.1-ci, 2-ci)")
         let transferCardIndex = (Int(readLine() ?? "") ?? 0) - 1
 
         print("Transfer məbləği:")
