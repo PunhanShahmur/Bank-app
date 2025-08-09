@@ -9,21 +9,31 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet private weak var fullnameInput: UITextField!
+    @IBOutlet private weak var emailInput: UITextField!
+    @IBOutlet private weak var phoneInput: UITextField!
+    @IBOutlet private weak var passwordInput: UITextField!
+    
+    var userCreated: (( User ) -> Void)?  /// CLOSURE YARATMA
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func registerTapped(_ sender: Any) {
+        
+        if fullnameInput.text?.count != 0, emailInput.text?.count != 0, phoneInput.text?.count != 0, passwordInput.text?.count != 0{
+            
+            var user: User = User(fullName: fullnameInput.text!, email: emailInput.text!, phoneNumber: phoneInput.text!, password: passwordInput.text!, isActive: true)
+            
+            users.append(user)
+            
+            userCreated?(user)
+            
+        } else {
+            
+        }
     }
-    */
-
 }

@@ -9,21 +9,20 @@ import UIKit
 
 class AddCardViewController: UIViewController {
 
+    @IBOutlet private weak var cardNameInput: UITextField!
+    @IBOutlet private weak var cardNumberInput: UITextField!
+    @IBOutlet private weak var expireDateInput: UITextField!
+    @IBOutlet private weak var cvcInput: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addCardTapped(_ sender: Any) {
     }
-    */
+    
 
 }

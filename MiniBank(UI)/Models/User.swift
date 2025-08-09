@@ -12,8 +12,8 @@ struct User {
     
     let fullName: String
     let email: String
-    let password: String
     let phoneNumber: String
-    let isActive: Bool = false
+    let password: String
+    var isActive: Bool = false
     
 }

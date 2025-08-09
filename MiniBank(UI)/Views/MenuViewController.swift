@@ -9,6 +9,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet private weak var menuCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
