@@ -25,8 +25,34 @@ class ViewController: UIViewController {
         
         for user in users {
             
-            
+            if (user.isActive) {
+                guard let controller = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+                
+                navigationController?.show(controller, sender: nil)
+                
+                print("elxan got")
+                
+                return
+            }
         }
+        
+        for user in users {
+            
+            if (user.email == emailInput.text && user.password == passwordInput.text) {
+                
+                guard let controller = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+                
+                navigationController?.show(controller, sender: nil)
+                
+                return
+                
+            }
+        }
+        
+        let alertController = UIAlertController(title: "Error", message: "Wrong email or password", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
         
     }
     

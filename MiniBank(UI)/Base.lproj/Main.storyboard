@@ -61,8 +61,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="llF-hV-Mtv" firstAttribute="top" secondItem="Kzo-cb-3CS" secondAttribute="bottom" constant="20" id="36X-64-QI0"/>
-                                    <constraint firstAttribute="trailing" secondItem="llF-hV-Mtv" secondAttribute="trailing" constant="80" id="5Qp-ao-kMi"/>
-                                    <constraint firstItem="llF-hV-Mtv" firstAttribute="leading" secondItem="1x7-pB-d2w" secondAttribute="leading" constant="80" id="lgm-UZ-gUj"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -218,20 +216,35 @@
                                 <rect key="frame" x="0.0" y="62" width="402" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kCx-Us-L9s">
-                                    <size key="itemSize" width="356" height="268"/>
+                                    <size key="itemSize" width="356" height="79"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4NQ-EZ-nVI">
-                                        <rect key="frame" x="23" y="0.0" width="356" height="268"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeftLabelViewCell" id="4NQ-EZ-nVI" customClass="LeftLabelViewCell" customModule="MiniBank_UI_" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="0.0" width="356" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FcC-gD-EqY">
-                                            <rect key="frame" x="0.0" y="0.0" width="356" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7x-y4-UKd">
+                                                    <rect key="frame" x="20" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c7x-y4-UKd" firstAttribute="centerY" secondItem="FcC-gD-EqY" secondAttribute="centerY" id="5C4-WN-0id"/>
+                                                <constraint firstItem="c7x-y4-UKd" firstAttribute="leading" secondItem="FcC-gD-EqY" secondAttribute="leading" constant="20" id="e9w-Ob-Dfb"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="356" height="268"/>
+                                        <size key="customSize" width="356" height="79"/>
+                                        <connections>
+                                            <outlet property="label" destination="c7x-y4-UKd" id="chY-mx-dBE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
