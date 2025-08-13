@@ -4,7 +4,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     @IBOutlet private weak var menuCollection: UICollectionView!
     
-    let menuItems: [String] = ["Cards", "Transfer", "Profile"]
+    let menuItems: [String] = ["Cards", "Transfer", "Add Card", "Exit"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LeftLabelViewCell", for: indexPath) as? LeftLabelViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.label.text = menuItems[indexPath.row]
+
+        cell.configureCell(value: menuItems[indexPath.row])
         
         return cell
     }
@@ -37,7 +37,59 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let choose: String = String(menuItems[indexPath.row])
         
+        var controller: UIViewController!
+        
+        if choose == "Cards" {
+            
+            if cards.isEmpty {
+                
+                controller = storyboard?.instantiateViewController(withIdentifier: "AddCardViewController") as? AddCardViewController
+                
+            } else {
+                
+                controller = storyboard?.instantiateViewController(withIdentifier: "CardsViewController") as? CardsViewController
+                
+            }
+            
+            
+        } else if choose == "Add Card" {
+          
+            controller = storyboard?.instantiateViewController(withIdentifier: "AddCardViewController") as? AddCardViewController
+            
+        } else if choose == "Transfer" {
+            
+            if allCards.count >= 2 {
+                
+                controller = storyboard?.instantiateViewController(withIdentifier: "TransferViewController") as? TransferViewController
+                
+            } else {
+                
+                let alertController = UIAlertController(title: "Error", message: "Not enough cards to transfer", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: nil)
+                
+                return
+            }
+            
+        } else {
+            
+            let dataManager = DataManager()
+            dataManager.removeAllData()
+            
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                if let delegate = windowScene.delegate as? SceneDelegate {
+                    delegate.loginRoot()
+                }
+            }
+            
+            return
+
+        }
+        
+        navigationController?.show(controller, sender: nil)
         
     }
     

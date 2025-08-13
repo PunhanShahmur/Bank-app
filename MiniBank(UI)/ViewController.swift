@@ -8,51 +8,55 @@
 import UIKit
 
 var users: [User] = []
+var cards: [CardType : [Card]] = [:]
+var allCards: [Card] = []
+
+func addCard(_ card: Card) {
+    cards[card.cardType, default: []].append(card)
+}
 
 class ViewController: UIViewController {
 
     @IBOutlet private weak var emailInput: UITextField!
     @IBOutlet private weak var passwordInput: UITextField!
     
+    let dataManager = DataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
     
     @IBAction func loginTapped(_ sender: Any) {
         
-        for user in users {
+        if let email = emailInput.text, let password = passwordInput.text, !email.isEmpty, !password.isEmpty {
             
-            if (user.isActive) {
-                guard let controller = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+            for user in users {
+               
+                if (user.email == emailInput.text && user.password == passwordInput.text) {
+                    
+                    dataManager.saveData(value: user.email, key: .email)
+                    dataManager.saveData(value: user.password, key: .password)
+                    dataManager.saveData(value: true, key: .isLoggedIn)
                 
-                navigationController?.show(controller, sender: nil)
-                
-                print("elxan got")
-                
-                return
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        
+                        if let delegate = windowScene.delegate as? SceneDelegate {
+                            
+                            delegate.countryRoot()
+                            
+                        }
+                    }
+    
+                    return
+                }
             }
-        }
-        
-        for user in users {
             
-            if (user.email == emailInput.text && user.password == passwordInput.text) {
-                
-                guard let controller = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
-                
-                navigationController?.show(controller, sender: nil)
-                
-                return
-                
-            }
+            let alertController = UIAlertController(title: "Error", message: "Wrong email or password", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true)
+            
         }
-        
-        let alertController = UIAlertController(title: "Error", message: "Wrong email or password", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
         
     }
     

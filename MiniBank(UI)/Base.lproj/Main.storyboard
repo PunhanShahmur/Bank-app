@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HR-N2-H5O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -88,13 +88,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniBank_UI_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="MiniBank_UI_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oaR-bh-rUc">
-                                <rect key="frame" x="80" y="326" width="242" height="196"/>
+                                <rect key="frame" x="80" y="282" width="242" height="196"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="siY-85-ffF">
                                         <rect key="frame" x="0.0" y="0.0" width="242" height="34"/>
@@ -130,7 +130,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="8Cy-r2-iAe">
-                                <rect key="frame" x="101" y="156" width="200" height="150"/>
+                                <rect key="frame" x="101" y="112" width="200" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="21H-SO-rwk"/>
                                     <constraint firstAttribute="width" constant="200" id="EB2-Fj-rci"/>
@@ -176,7 +176,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="m1s-LQ-64i">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeftLabelViewCell" id="m1s-LQ-64i" customClass="LeftLabelViewCell" customModule="MiniBank_UI_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d3V-u5-Cnx">
@@ -275,20 +275,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lrX-uq-1vR">
-                                <rect key="frame" x="24" y="150.33333333333334" width="354" height="147.00000000000003"/>
+                                <rect key="frame" x="24" y="150.33333333333334" width="354" height="201.00000000000003"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="receiver card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-a7-PAO">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="sender card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cS0-SJ-pBN">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFz-4T-80B">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="receiver card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-a7-PAO">
                                         <rect key="frame" x="0.0" y="54" width="354" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFz-4T-80B">
+                                        <rect key="frame" x="0.0" y="107.99999999999997" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNX-73-SYF">
-                                        <rect key="frame" x="0.0" y="107.99999999999997" width="354" height="39"/>
+                                        <rect key="frame" x="0.0" y="161.99999999999997" width="354" height="39"/>
                                         <color key="backgroundColor" name="green"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -298,10 +303,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="4Nq-a7-PAO" firstAttribute="leading" secondItem="lrX-uq-1vR" secondAttribute="leading" constant="24" id="Zbs-9z-cGx"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Nq-a7-PAO" secondAttribute="trailing" constant="24" id="xTf-FB-yqs"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSw-85-68W">
                                 <rect key="frame" x="139.33333333333334" y="92" width="123.66666666666666" height="38.333333333333343"/>
@@ -324,12 +325,12 @@
                     <connections>
                         <outlet property="amountInput" destination="JFz-4T-80B" id="Bw1-Aj-8eU"/>
                         <outlet property="receiverCardInput" destination="4Nq-a7-PAO" id="xxu-9B-ot6"/>
-                        <outlet property="receiverCardNumberInout" destination="4Nq-a7-PAO" id="qnm-lg-yUf"/>
+                        <outlet property="senderCardInput" destination="cS0-SJ-pBN" id="vPD-0p-jac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyh-oK-WqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3863.3587786259541" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="4678" y="-12"/>
         </scene>
         <!--Add Card View Controller-->
         <scene sceneID="aif-Le-GQZ">
@@ -340,7 +341,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KyW-uL-g2u">
-                                <rect key="frame" x="24" y="150.33333333333337" width="354" height="255"/>
+                                <rect key="frame" x="24" y="150.33333333333337" width="354" height="309"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="card name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NnJ-s1-uy0">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
@@ -362,8 +363,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="card type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PVu-V0-yq6">
+                                        <rect key="frame" x="0.0" y="215.99999999999997" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmE-MX-MXa">
-                                        <rect key="frame" x="0.0" y="215.99999999999997" width="354" height="39"/>
+                                        <rect key="frame" x="0.0" y="270" width="354" height="39"/>
                                         <color key="backgroundColor" name="green"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -373,11 +379,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="LlH-Wy-GbB" firstAttribute="top" secondItem="5Hw-Fb-bII" secondAttribute="bottom" constant="20" id="r8D-YH-zBf"/>
-                                    <constraint firstItem="LlH-Wy-GbB" firstAttribute="leading" secondItem="KyW-uL-g2u" secondAttribute="leading" constant="24" id="x1Y-8c-420"/>
-                                    <constraint firstAttribute="trailing" secondItem="LlH-Wy-GbB" secondAttribute="trailing" constant="24" id="zTx-By-v58"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1c-lZ-nQO">
                                 <rect key="frame" x="131.33333333333337" y="92" width="139.66666666666663" height="38.333333333333343"/>
@@ -400,6 +401,7 @@
                     <connections>
                         <outlet property="cardNameInput" destination="NnJ-s1-uy0" id="vST-jE-ik7"/>
                         <outlet property="cardNumberInput" destination="5Hw-Fb-bII" id="Vra-eo-X1a"/>
+                        <outlet property="cardTypeInput" destination="PVu-V0-yq6" id="xvT-0I-Tol"/>
                         <outlet property="cvcInput" destination="4WW-tu-cXE" id="LLP-qI-oTe"/>
                         <outlet property="expireDateInput" destination="LlH-Wy-GbB" id="jAM-hg-pIs"/>
                     </connections>
@@ -408,23 +410,123 @@
             </objects>
             <point key="canvasLocation" x="2950.3816793893129" y="-11.267605633802818"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DDa-8q-8rp">
+        <!--Card Detail View Controller-->
+        <scene sceneID="2BY-6b-x7w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4HR-N2-H5O" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fmO-hM-0ma">
-                        <rect key="frame" x="0.0" y="62" width="402" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="CardDetailViewController" id="VBO-CY-43A" customClass="CardDetailViewController" customModule="MiniBank_UI_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DzA-1Q-UXz">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HD0-96-eFE">
+                                <rect key="frame" x="24" y="92" width="354" height="220"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7N-W8-jdr">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="38.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yh8-so-oKb">
+                                        <rect key="frame" x="0.0" y="54.33333333333335" width="354" height="20.333333333333336"/>
+                                        <color key="tintColor" white="0.87" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXn-gn-Mkd">
+                                        <rect key="frame" x="0.0" y="90.666666666666657" width="354" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4P-Oe-F6z">
+                                        <rect key="frame" x="0.0" y="126.99999999999999" width="354" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCW-1K-dgi">
+                                        <rect key="frame" x="0.0" y="163.33333333333334" width="354" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbY-RX-rdw">
+                                        <rect key="frame" x="0.0" y="199.66666666666669" width="354" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zfD-BS-iez"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zfD-BS-iez" firstAttribute="trailing" secondItem="HD0-96-eFE" secondAttribute="trailing" constant="24" id="0Bf-yd-2fQ"/>
+                            <constraint firstItem="HD0-96-eFE" firstAttribute="top" secondItem="zfD-BS-iez" secondAttribute="top" constant="30" id="bdF-oH-vgH"/>
+                            <constraint firstItem="HD0-96-eFE" firstAttribute="leading" secondItem="zfD-BS-iez" secondAttribute="leading" constant="24" id="wSs-Xr-nLF"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JpB-Th-UPL"/>
+                        <outlet property="balanceInput" destination="sbY-RX-rdw" id="8eR-YL-oYt"/>
+                        <outlet property="cardNameInput" destination="Yh8-so-oKb" id="FbC-cP-Bsg"/>
+                        <outlet property="cardNumberInput" destination="qXn-gn-Mkd" id="NHp-fo-EUM"/>
+                        <outlet property="cardTypeInput" destination="O7N-W8-jdr" id="NQG-7G-GTe"/>
+                        <outlet property="cvcInput" destination="rCW-1K-dgi" id="XfL-oa-XxX"/>
+                        <outlet property="expireDateInput" destination="l4P-Oe-F6z" id="VyL-2d-qQE"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbg-Xf-OLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4H8-oT-2NO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1509.1603053435115" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="3836" y="-12"/>
+        </scene>
+        <!--Cards Type View Controller-->
+        <scene sceneID="Uat-Wk-bnj">
+            <objects>
+                <viewController storyboardIdentifier="CardsTypeViewController" id="nDM-fV-pxy" customClass="CardsTypeViewController" customModule="MiniBank_UI_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WAu-dM-U2r">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZG6-iK-ANK">
+                                <rect key="frame" x="0.0" y="62" width="402" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L55-Ov-wTf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeftLabelViewCell" id="J30-0F-0g5" customClass="LeftLabelViewCell" customModule="MiniBank_UI_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qdu-7d-0ge">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vWu-Ze-ibt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZG6-iK-ANK" firstAttribute="leading" secondItem="vWu-Ze-ibt" secondAttribute="leading" id="D7a-7X-RCv"/>
+                            <constraint firstItem="ZG6-iK-ANK" firstAttribute="top" secondItem="vWu-Ze-ibt" secondAttribute="top" id="DMc-C5-dt1"/>
+                            <constraint firstItem="vWu-Ze-ibt" firstAttribute="bottom" secondItem="ZG6-iK-ANK" secondAttribute="bottom" id="ePG-Ni-Kob"/>
+                            <constraint firstItem="vWu-Ze-ibt" firstAttribute="trailing" secondItem="ZG6-iK-ANK" secondAttribute="trailing" id="pYG-BZ-X8F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectedCardsCollection" destination="ZG6-iK-ANK" id="Xxt-HP-Um6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtB-Pf-VTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2949" y="663"/>
         </scene>
     </scenes>
     <resources>
